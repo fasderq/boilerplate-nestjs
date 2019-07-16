@@ -1,0 +1,9 @@
+httpServerOptions:
+  host: <%- env.HTTP_HOST || '0.0.0.0' %>
+  port: <%- env.HTTP_PORT || 9090 %>
+databaseOptions:
+  host: <%= env.DB_HOST || 'localhost' %>
+  port: <%= env.DB_PORT || 5432 %>
+  username: <%= env.DB_USERNAME || 'res' %>
+  password: <%- env.DB_PASSWORD || '123123' %>
+  database: <%= env.DB_DATABASE || 'res' %>

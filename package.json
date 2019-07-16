@@ -1,0 +1,40 @@
+{
+  "license": "MIT",
+  "scripts": {
+    "clean": "rimraf ./dist",
+    "clean:full": "rimraf ./dist && rimraf ./node_modules",
+    "build": "tsc",
+    "start:dev": "concurrently --handle-input \"wait-on ./dist/index.js && nodemon\" \"tsc -w -p tsconfig.json\" ",
+    "start:debug": "nodemon --config nodemon-debug.json",
+    "start:ts": "ts-node -r tsconfig-paths/register src/index.ts",
+    "start:js": "yarn clean && yarn build && node -r ts-node/register -r tsconfig-paths/register ./dist/index.js",
+    "start:prod": "node -r ts-node/register -r tsconfig-paths/register ./dist/index.js"
+  },
+  "dependencies": {
+    "@nestjs/common": "^6.3.2",
+    "@nestjs/core": "^6.3.2",
+    "@nestjs/platform-fastify": "^6.3.2",
+    "@nestjs/typeorm": "^6.1.2",
+    "dotenv": "^8.0.0",
+    "ejs": "^2.6.2",
+    "js-yaml": "^3.13.1",
+    "pg": "^7.11.0",
+    "reflect-metadata": "^0.1.13",
+    "rimraf": "^2.6.3",
+    "rxjs": "^6.5.2",
+    "typeorm": "^0.2.18"
+  },
+  "devDependencies": {
+    "@compodoc/compodoc": "^1.1.10",
+    "@types/dotenv": "^6.1.1",
+    "@types/ejs": "^2.6.3",
+    "@types/js-yaml": "^3.12.1",
+    "@types/node": "^12.0.10",
+    "concurrently": "^4.1.1",
+    "nodemon": "^1.19.1",
+    "ts-node": "^8.3.0",
+    "tsconfig-paths": "^3.8.0",
+    "typescript": "^3.5.2",
+    "wait-on": "^3.3.0"
+  }
+}
